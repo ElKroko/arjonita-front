@@ -1,0 +1,42 @@
+.header{
+    background: #DFDFDF;
+    min-height: 57px;
+  }
+  .header-title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+    color: #3E5363;
+  }
+  .history-btn{
+    background-color: white;
+    color: rgba(62, 83, 99, 0.75);
+    height: 31px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .card-table-title{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    color: #3E5363;
+  }
+  .edit-data-btn{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color:rgba(62, 83, 99, 0.75);
+  }
+  .active{
+    background-color: rgba(62, 83, 99, 0.09);
+    border-color: rgba(62, 83, 99, 0.09);
+    color: #3E5363;
+  }
+  .clickable{
+    cursor: pointer;
+  }
+  

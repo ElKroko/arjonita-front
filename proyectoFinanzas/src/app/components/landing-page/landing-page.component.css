@@ -1,0 +1,30 @@
+.main-card{
+  width: 622px;
+  height: 392px;
+}
+.logo-img{
+  margin-bottom: 20px;
+}
+.title-card{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #DB3B44
+}
+.subtitle-card{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #3E5363;
+}
+
+@media (max-width: 600px){
+  .main-card{
+    width: 100%;
+    height: auto;
+  }
+}

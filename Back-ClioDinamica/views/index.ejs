@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ClioDinamica</h1>
+
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Gestión Comercial</a></li>
+        <li><a href="">Evaluación Económica</a></li>
+        <li><a href="">Gestión de Pago</a></li>
+        <li><a href="">Asignación de RRHH</a></li>
+        <li><a href="">Esfuerzo Equipo</a></li>
+        <li><a href="">CV de Experiencia</a></li>
+    </ul>
+
+    <hr>
+
+    <button><a href="nuevaProp">Ingresar Nueva Propuesta +</a></button>
+    <button id="actualizar"><a href="">Actualización Estado Proyecto</a></button>
+
+    <hr>
+
+    <ul>
+        <h4>Proyectos Explorativos</h4>
+        
+
+        <% propuestasExplorativas.forEach( (r) => { %>
+            <li>
+                <tr>
+                    <td>Nombre: <%= r.nombrepropuesta %></td>
+                    <td>Estado: <%= r.estado %></td>
+                    <td>nombreCliente: <%= r.nombrecliente %></td>
+                </tr>
+            </li>
+        <% }) %>
+    </ul>
+
+    <hr>
+
+    <ul>
+        <h4>Proyectos Adjudicados</h4>
+
+        <% propuestasAdjudicadas.forEach( (r) => { %>
+            <li>
+                <tr>
+                    <td>Nombre: <%= r.nombrepropuesta %></td>
+                    <td>Estado: <%= r.estado %></td>
+                    <td>nombreCliente: <%= r.nombrecliente %></td>
+                </tr>
+            </li>
+        <% }) %>
+    </ul>
+
+    <hr>
+
+    <ul>
+        <h4>Proyectos Postulados</h4>
+
+        <% propuestasPostuladas.forEach( (r) => { %>
+            <li>
+                <tr>
+                    <td>Nombre: <%= r.nombrepropuesta %></td>
+                    <td>Estado: <%= r.estado %></td>
+                    <td>nombreCliente: <%= r.nombrecliente %></td>
+                </tr>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
+
+<script>
+    const verificar = document.getElementById('actualizar');
+
+    actualizar.addEventListener("click", async (e) =>   {
+        e.preventDefault();
+        window.location.href = `/actualizacionEstado`;
+    })
+</script>

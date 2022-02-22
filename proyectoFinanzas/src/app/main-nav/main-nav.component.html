@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" 
+      [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar><img src="../../assets/icons/cliodinamica-logo.svg" alt=""></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/home']"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>Home</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/gest-com']"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">wb_incandescent</i>Gestión Comercial</a>
+      <a mat-list-item [routerLink]="['/ev-eco']"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>Evaluación Económica</a>
+      <a mat-list-item [routerLink]="['/gest-pago']"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>Gestión de Pago</a>
+      <a mat-list-item href="#"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">touch_app</i>Asignación de RRHH</a>
+      <a mat-list-item href="#"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">access_time</i>Esfuerzo Equipo</a>
+      <a mat-list-item href="#"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_books</i>Currículum de Experiencia</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> 
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+        <mat-icon>settings</mat-icon>
+      </button>
+
+    </mat-toolbar>
+    <ng-content></ng-content>
+    
+    
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

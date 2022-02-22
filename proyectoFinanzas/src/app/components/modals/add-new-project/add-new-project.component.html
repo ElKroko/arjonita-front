@@ -1,0 +1,313 @@
+<div class="modal-container">
+  <div *ngIf="!showNewProjectForm && !showEconomicEvaluationForm && !showSuccessMessage; then ModalMenu"></div>
+  <div *ngIf="showNewProjectForm && !showEconomicEvaluationForm; then NewProjectForm"></div>
+  <div *ngIf="!showNewProjectForm && showEconomicEvaluationForm; then EconomicEvaluationForm"></div>
+  <div *ngIf="showSuccessMessage; then SuccessMensage"></div>
+</div>
+
+<ng-template #ModalMenu>
+
+  <div class="modal-header pt-5 px-5">
+    <p class="modal-title-font">Ingreso nueva propuesta</p>
+    <button type="button" class="close" aria-label="Close" (click)="cerrar.emit()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body d-flex flex-column align-items-center px-5">
+    <button type="button" class="btn modal-button" data-toggle="modal" data-target="#modal-add-new-project"
+      (click)="setNewProjectForm()">
+      Descripción general
+      <img *ngIf="!newProjectFormUploaded" src="../../../../assets/icons/add_icon.svg" alt="add">
+      <img *ngIf="newProjectFormUploaded" src="../../../../assets/icons/check_icon.svg" alt="check">
+    </button>
+  </div>
+  <div class="modal-footer d-flex justify-content-center align-items-center p-4">
+    <button 
+      type="button" 
+      [routerLink]="['/gest-com']" 
+      routerLinkActive="router-link-active"
+      class="btn submit-button"
+      (click)="setEconomicEvaluationForm()">
+      Guardar
+    </button>
+  </div>
+
+</ng-template>
+<ng-template #NewProjectForm>
+
+  <div class="modal-header d-flex align-items-center pb-0 m-0 px-5">
+    <img (click)="showModalMenu()" class="chevron-icon" src="../../../../assets/icons/chevron_left_icon.svg"
+      alt="chevron-left">
+    <div class="d-flex flex-column pt-5">
+      <h4 class="modal-title modal-title-font">Ingreso nueva propuesta</h4>
+      <p class="modal-subtitle-font">descripcion general</p>
+      <p class="text-muted"><small>Los campos con </small><span class="text-error">*</span><small> son obligatorios.</small></p>
+    </div>
+    <button type="button" class="close" aria-label="Close" (click)="cerrar.emit()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body m-0 px-5">
+    <Form [formGroup]="newProjectForm" (ngSubmit)="completeNewProjectForm()">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="d-flex flex-column col-sm"> -->
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label for="proposalName" class="input-labels">Propuesta - Nombre <span style="color:red">*</span></label>
+              <div class="d-flex flex-row">
+                <input matInput type="text" id="proposalName" class="input" formControlName="nombrePropuesta">
+                <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+              </div>
+              <p *ngIf="newProjectForm.controls.nombrePropuesta.touched && newProjectForm.controls.nombrePropuesta.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Tipo <span style="color:red">*</span></label>
+              <ng-select aria-placeholder="Tipo" placeholder="Tipo" [items]="tipos" 
+                bindLabel="name" 
+                bindValue="id" 
+                formControlName="tipo">
+              </ng-select>
+              <p *ngIf="newProjectForm.controls.tipo.touched && newProjectForm.controls.tipo.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">GEST OR COM <span style="color:red">*</span></label>
+              <div class="d-flex flex-row">
+                <input matInput type="text" class="input" formControlName="gestorComercial">
+                <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+              </div>
+              <p *ngIf="newProjectForm.controls.gestorComercial.touched && newProjectForm.controls.gestorComercial.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Monto <span style="color:red">*</span></label>
+              <div class="d-flex flex-row">
+                <input matInput type="number" min="0" class="input" formControlName="monto">
+                <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+              </div>
+              <p *ngIf="newProjectForm.controls.monto.touched && newProjectForm.controls.monto.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Estado <span style="color:red">*</span></label>
+              <ng-select aria-placeholder="Estado" placeholder="Estado" [items]="tipos" 
+                bindLabel="name" 
+                bindValue="id" 
+                formControlName="estado">
+              </ng-select>
+              <p *ngIf="newProjectForm.controls.estado.touched && newProjectForm.controls.estado.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Notas <span style="color:red">*</span></label>
+              <textarea placeholder="Notas aquí" class="text-area-form form-control" formControlName="notas"></textarea>
+              <p *ngIf="newProjectForm.controls.notas.touched && newProjectForm.controls.notas.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">MES POST <span style="color:red">*</span></label>
+              <ng-select aria-placeholder="Mes Postulación" placeholder="Mes Postulación" [items]="totalMonths" 
+                bindLabel="name" 
+                bindValue="id" 
+                formControlName="mesPostulacion">
+              </ng-select>
+              <p *ngIf="newProjectForm.controls.mesPostulacion.touched && newProjectForm.controls.mesPostulacion.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+ 
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Año VTA <span style="color:red">*</span></label>
+              <div class="input-group monthDatePicker2" style="height: 26px;" id="monthDatePicker2">
+                <input class="form-control selector" placeholder="fecha" name="dm" ngbDatepicker #d="ngbDatepicker" formControlName="FechaVenta">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <fa-icon [icon]="['fas', 'calendar-day']"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              <p *ngIf="newProjectForm.controls.FechaVenta.touched && newProjectForm.controls.FechaVenta.errors" class="text-error mt-2">Este campo es obligatorio</p>
+              
+            </div>
+ 
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label for="gun" class="input-labels">GUN <span style="color:red">*</span></label>
+              <ng-select [items]="tipos" id="gun"
+                bindLabel="name" 
+                bindValue="id" 
+                formControlName="gerenteUniNegocio">
+              </ng-select>
+              <p *ngIf="newProjectForm.controls.gerenteUniNegocio.touched && newProjectForm.controls.gerenteUniNegocio.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+ 
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">JP</label>
+              <ng-select [items]="tipos" id="gun"
+                bindLabel="name" 
+                bindValue="id" 
+                formControlName="jefeProyecto">
+              </ng-select>
+              <p *ngIf="newProjectForm.controls.jefeProyecto.touched && newProjectForm.controls.jefeProyecto.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+ 
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Código <span style="color:red">*</span></label>
+              <div class="d-flex flex-row">
+                <input matInput type="text" class="input" formControlName="codigo">
+                <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+              </div>
+              <p *ngIf="newProjectForm.controls.codigo.touched && newProjectForm.controls.codigo.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">ID <span style="color:red">*</span></label>
+              <div class="d-flex flex-row">
+                <input matInput type="text" class="input" formControlName="idCodigo">
+                <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+              </div>
+              <p *ngIf="newProjectForm.controls.idCodigo.touched && newProjectForm.controls.idCodigo.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <label class="input-labels">Nombre Cliente <span style="color:red">*</span></label>
+              <div class="d-flex flex-row">
+                <input matInput type="text" class="input" formControlName="nombreCliente">
+                <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+              </div>
+              <p *ngIf="newProjectForm.controls.nombreCliente.touched && newProjectForm.controls.nombreCliente.errors" class="text-error">Este campo es obligatorio</p>
+            </div>
+
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center align-items-center py-5">
+        <button [disabled]="!newProjectForm.valid" type="submit" class="btn submit-button">Subir</button>
+      </div>
+    </Form>
+  </div>
+</ng-template>
+<ng-template #EconomicEvaluationForm>
+
+  <div class="modal-header d-flex pb-0 px-5 pt-3" style="margin-top: 48px;">
+    <img (click)="showModalMenu()" class="chevron-icon" src="../../../../assets/icons/chevron_left_icon.svg"
+      alt="chevron-left">
+      <p class="modal-title-font">Evaluación económica explorativa</p>
+    <button type="button" class="close" aria-label="Close" (click)="cerrar.emit()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body m-0 px-5">
+    <Form>
+      <div class="d-flex flex-row justify-content-center">
+        <div class="container">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Nombre Proyecto</label>
+                <input matInput type="text" class="input">
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Duración (Meses)</label>
+                <input matInput type="text" class="input">
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Boleta/Poliza Seriedad</label>
+                <select class="form-control selector">
+                  <option>Seleccione una opción</option>
+                  <option>Tipo 1</option>
+                  <option>Tipo 2</option>
+                  <option>Tipo 3</option>
+                </select>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Valor UF Referencia</label>
+                <input matInput type="text" class="input" placeholder="--">
+              </div>
+              
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Presupuesto Disponible</label>
+                <input matInput type="text" class="input">
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Oferta Economica</label>
+                <input matInput type="text" class="input">
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Distribución</label>
+                <select class="form-control selector">
+                  <option>--</option>
+                  <option>Tipo 1</option>
+                  <option>Tipo 2</option>
+                  <option>Tipo 3</option>
+                </select>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Duración del proyecto (Meses)</label>
+                <select class="form-control selector">
+                  <option>--</option>
+                  <option>Tipo 1</option>
+                  <option>Tipo 2</option>
+                  <option>Tipo 3</option>
+                </select>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <label class="input-labels">Notas</label>
+                <textarea cols="auto" placeholder="Notas aquí" class="text-area-form form-control"></textarea>
+              </div>
+
+            <div class="d-flex flex-column col-sm ml-lg-3">
+              <label class="input-labels">Fecha de inicio Estimada</label>
+              <div class="input-group">
+                <input class="form-control selector" placeholder="fecha" name="dm-0" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <fa-icon [icon]="['fas', 'calendar-day']"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              <label class="input-labels">GAV</label>
+              <input matInput type="text" class="input" placeholder="--">
+              <label class="input-labels">Boleta/Póliza Fiel Cumplimiento</label>
+              <select class="form-control selector">
+                <option>--</option>
+                <option>Sí</option>
+                <option>No</option>
+              </select>
+              <label class="input-labels">Fecha Valor UF Referencia</label>
+              <div class="input-group">
+                <input class="form-control selector" placeholder="fecha" name="dm" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <fa-icon [icon]="['fas', 'calendar-day']"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              <label class="input-labels">Estado</label>
+              <select class="form-control selector">
+                <option>--</option>
+                <option>Tipo 1</option>
+                <option>Tipo 2</option>
+                <option>Tipo 3</option>
+              </select>
+              <label class="input-labels">Código</label>
+              <input matInput type="text" class="input" placeholder="--">
+              <label class="input-labels">ID</label>
+              <input matInput type="text" class=" input" placeholder="--">
+              <label class="input-labels">Nombre Cliente</label>
+              <input matInput type="text" class="input" placeholder="--">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center align-items-center py-5">
+        <button type="button" class="btn submit-button" (click)="cerrar.emit()">Subir</button>
+      </div>
+    </Form>
+  </div>
+
+</ng-template>
+<ng-template #SuccessMensage>
+
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="cerrar.emit()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+    <h1 class="successMenssage">Nueva oportunidad subida con éxito</h1>
+    <button type="button" class="btn submit-button" (click)="cerrar.emit()">Aceptar</button>
+  </div>
+
+</ng-template>

@@ -1,0 +1,9 @@
+<div class="modal-header border-0">
+  <p class="modal-title">Proyectos Asignados</p>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <app-table [ColData]="colData"></app-table>
+</div>

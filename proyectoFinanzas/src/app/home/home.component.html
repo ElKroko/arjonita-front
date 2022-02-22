@@ -1,0 +1,16 @@
+<app-main-nav>
+  <div class="buttons-container">
+    <button class="btn home-button"
+     (click)="openAddNewProjectModal(newpropuesta)">
+      Ingresar Nueva Propuesta +
+    </button>
+    <button class="btn home-button" (click)="openUpdateProjectStatusModal()">
+      Actualización Estado Proyecto
+    </button>
+  </div>
+  <app-data-table [propuestas]="propuestas" [total]="total" (changePage)="changePage($event)"></app-data-table>
+</app-main-nav>
+
+<ng-template #newpropuesta>
+  <add-new-project (cerrar)="close()" (refresh)="getPropuestas()"></add-new-project>
+</ng-template>

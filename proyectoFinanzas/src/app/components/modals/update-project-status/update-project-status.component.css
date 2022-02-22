@@ -1,0 +1,32 @@
+.input{
+  border: none;
+  border-bottom: 1px solid rgba(62, 83, 99, 0.42);
+  height: 26px;
+}
+.input-labels{
+  color:#3E5363;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 30px;
+}
+.selector{
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(62, 83, 99, 0.42);
+}
+.submit-button{
+  background: #0D96FF;
+  color:white;
+  border-radius: 2px;
+  width: 206px;
+  height: 40px;
+}
+.modal-footer{
+  border-top: 1px solid white;
+}
+.chevron-icon{
+  margin-right: 30px ;
+}

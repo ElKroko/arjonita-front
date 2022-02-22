@@ -1,0 +1,92 @@
+.header{
+  background: #DFDFDF;
+  height: 57px;
+}
+.header-title{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  color: #3E5363;
+}
+.disclaimer{
+  background-color: #FFE6E7;
+}
+.disclaimer-title{
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  color: #3E5363;
+}
+.selector-card{
+  width: 30%;
+  height: 100%;
+}
+.menu-card{
+  width: 100%;
+  height: 100%;
+}
+.clickable{
+  cursor: pointer;
+}
+.accordion-title{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+}
+.margin-top-12{
+  margin-top: 12px;
+}
+.active{
+  background-color: rgba(62, 83, 99, 0.09);
+  border-color: rgba(62, 83, 99, 0.09);
+  color: #3E5363;
+}
+.add-btn{
+  margin-right: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+.warning-icon{
+  margin-right: 10px;
+}
+.changeArrow{
+  transform: rotate(180deg);
+}
+.folder-icon{
+  margin-right: 12px;
+}
+.input-labels{
+  color:#3E5363;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 30px;
+}
+
+.input{
+  border: none;
+  border-bottom: 1px solid rgba(62, 83, 99, 0.42);
+  height: 26px;
+}
+
+.selector{
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(62, 83, 99, 0.42);
+}
+
+.inputs-column{
+  margin-right: 35px;
+}
+
+.text-area-form{
+  border: 1px solid rgba(62, 83, 99, 0.42);
+  border-radius: 4px;
+  resize: none;
+  min-height: 115px;
+}

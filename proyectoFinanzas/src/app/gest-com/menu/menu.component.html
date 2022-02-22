@@ -1,0 +1,206 @@
+<div class="d-flex flex-row justify-content-between align-items-center px-4 pt-2 header rounded-0">
+  <p class="header-title">Gestion Comercial</p>
+  <div class="icons">
+    <img class="mr-3" src="../../../assets/icons/filter_list_icon.svg" alt="filter-icon">
+    <img src="../../../assets/icons/more_vertical_icon.svg" alt="more-info-icon">
+  </div>
+</div>
+<div class="d-flex flex-row card rounded-0" style="height: 100%;">
+  <div class="card selector-card border-top-0 border-right-0 rounded-0">
+    <ul class="list-group">
+      <li class="list-group-item clickable active">
+        <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+        Nombre proyecto
+      </li>
+      <li class="list-group-item clickable">
+        <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+        Nombre proyecto
+      </li>
+      <li class="list-group-item clickable">
+        <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+        Nombre proyecto
+      </li>
+      <li class="list-group-item clickable">
+        <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+        Nombre proyecto
+      </li>
+    </ul> 
+  </div>
+  <div class="card border-top-0 rounded-0" style="width: 100%;">
+    <div class="card-body">
+        <div class="card">
+          <div class="card-body disclaimer">
+            <div class="align-middle d-flex flex-row ">
+              <img src="../../../assets/icons/warning_icon.svg" class="warning-icon" alt="warning-icon">
+              <p class="disclaimer-title">Elementos Faltantes</p>
+            </div>
+          </div>
+        </div>
+        <div class="margin-top-12">
+          <ngb-accordion #a="ngbAccordion">
+            <ngb-panel>
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="d-flex align-items-center justify-content-between">
+                  <p class="m-0 accordion-title">Historial de cambios</p>
+                  <button ngbPanelToggle class="btn btn-link p-0">
+                    <img [ngClass]="{changeArrow: opened}" src="../../../assets/icons/expand_more_icon.svg">
+                  </button>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      <div class="margin-top-12">
+        <ngb-accordion #a="ngbAccordion">
+          <ngb-panel>
+            <ng-template ngbPanelHeader let-opened="opened">
+              <div class="d-flex align-items-center justify-content-between">
+                <p class="m-0 accordion-title">Descripción General</p>
+                <button ngbPanelToggle class="btn btn-link p-0">
+                  <img [ngClass]="{changeArrow: opened}" src="../../../assets/icons/expand_more_icon.svg">
+                </button>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+      <div class="margin-top-12">
+        <ngb-accordion #a="ngbAccordion">
+          <ngb-panel>
+            <ng-template ngbPanelHeader let-opened="opened">
+              <div class="d-flex align-items-center justify-content-between">
+                <p class="m-0 accordion-title">Proceso de Ventas</p>
+                <div>
+                  <button class="btn add-btn">
+                    <img src="../../../assets/icons/add_icon.svg" alt="add-icon">
+                  </button>
+                  <button ngbPanelToggle class="btn btn-link p-0">
+                    <img [ngClass]="{changeArrow: opened}" src="../../../assets/icons/expand_more_icon.svg">
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <ng-container *ngTemplateOutlet="NewProjectForm"></ng-container>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+      <div class="margin-top-12">
+        <ngb-accordion #a="ngbAccordion">
+          <ngb-panel>
+            <ng-template ngbPanelHeader let-opened="opened">
+              <div class="d-flex align-items-center justify-content-between">
+                <p class="m-0 accordion-title">Proceso de Facturación</p>
+                <div>
+                  <button class="btn add-btn">
+                    <img src="../../../assets/icons/add_icon.svg" alt="add-icon">
+                  </button>
+                  <button ngbPanelToggle class="btn btn-link p-0">
+                    <img [ngClass]="{changeArrow: opened}" src="../../../assets/icons/expand_more_icon.svg">
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #NewProjectForm>
+    <Form>
+      <div class="container">
+        <div class="row">
+          <div class="d-flex flex-column col-sm">
+            <label class="input-labels">Propuesta - Nombre</label>
+            <div class="d-flex flex-row">
+              <input matInput type="text" class="input" formControlName="proposalName">
+              <img src="../../../../assets/icons/pencil_ic.svg" alt="">
+            </div>
+            <label class="input-labels">Tipo</label>
+            <select class="form-control selector" formControlName="type">
+              <option>Seleccione una opción</option>
+              <option>Tipo 1</option>
+              <option>Tipo 2</option>
+              <option>Tipo 3</option>
+            </select>
+            <label class="input-labels">GEST OR COM</label>
+            <div class="d-flex flex-row">
+              <input matInput type="text" class="input" formControlName="gestOrCom">
+              <img src="../../../../assets/icons/pencil_ic.svg" alt="">
+            </div>
+            <label class="input-labels">Monto</label>
+            <div class="d-flex flex-row">
+              <input matInput type="text" class="input" formControlName="amount">
+              <img src="../../../../assets/icons/pencil_ic.svg" alt="">
+            </div>
+            <label class="input-labels">Estado</label>
+            <select class="form-control selector" formControlName="status" aria-placeholder="--">
+              <option selected>--</option>
+              <option value="Tipo 1">Tipo 1</option>
+              <option value="Tipo 2">Tipo 2</option>
+              <option value="Tipo 3">Tipo 3</option>
+            </select>
+            <label class="input-labels">Notas</label>
+            <textarea placeholder="Notas aquí" class="text-area-form" formControlName="notes"></textarea>
+          </div>
+          <div class="d-flex flex-column col-sm ml-lg-3">
+            <label class="input-labels">MES POST</label>
+            <select class="form-control selector" formControlName="postMonth">
+              <option>opcion 1</option>
+              <option>opcion 2</option>
+            </select>
+            <label class="input-labels">Año VTA</label>
+            <div class="input-group monthDatePicker2" style="height: 26px;" id="monthDatePicker2">
+              <input class="form-control selector" placeholder="fecha" name="dm" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                  <img src="../../../../assets/icons/calendar_icon.svg" alt="calendar-icon">
+                </button>
+              </div>
+            </div>
+            <label class="input-labels">GUN</label>
+            <select class="form-control selector">
+              <option>--</option>
+              <option>Tipo 1</option>
+              <option>Tipo 2</option>
+              <option>Tipo 3</option>
+            </select>
+            <label class="input-labels">JP</label>
+            <select class="form-control selector">
+              <option>--</option>
+              <option>Tipo 1</option>
+              <option>Tipo 2</option>
+              <option>Tipo 3</option>
+            </select>
+            <label class="input-labels">Código</label>
+            <div class="d-flex flex-row">
+              <input matInput type="text" class="input">
+              <img src="../../../../assets/icons/pencil_ic.svg" alt="">
+            </div>
+            <label class="input-labels">ID</label>
+            <div class="d-flex flex-row">
+              <input matInput type="text" class="input">
+              <img src="../../../../assets/icons/pencil_ic.svg" alt="">
+            </div>
+            <label class="input-labels">Nombre Cliente</label>
+            <div class="d-flex flex-row">
+              <input matInput type="text" class="input">
+              <img src="../../../../assets/icons/pencil_ic.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center py-5">
+        <button type="submit" class="btn submit-button">Subir</button>
+      </div>
+    </Form>
+</ng-template>

@@ -1,0 +1,92 @@
+<app-main-nav>
+  <div class="d-flex flex-row justify-content-between rounded-0 px-4 py-3 header">
+    <p class="header-title">Evaluación Económica</p>
+    <button class="btn history-btn" (click)="openChangesHistoryModal()">Historial de cambios</button>
+  </div>
+  <div class="d-flex flex-row card border-0 rounded-0">
+    <div class="card selector-card border-top-0 border-right-0 rounded-0">
+      <ul class="list-group">
+        <li class="list-group-item clickable active">
+          <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+          Nombre proyecto
+        </li>
+        <li class="list-group-item clickable">
+          <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+          Nombre proyecto
+        </li>
+        <li class="list-group-item clickable">
+          <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+          Nombre proyecto
+        </li>
+        <li class="list-group-item clickable">
+          <img src="../../../assets/icons/folder_icon.svg" class="folder-icon" alt="folder-icon">
+          Nombre proyecto
+        </li>
+      </ul>
+    </div>
+    <div class="card rounded-0" style="width: 100%; height: 100%;">
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Ingresos</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Gastos</p>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">RRHH</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Honorarios</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Servicios Profesionales</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Trabajo de campo</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Gastos Operacionales</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Administración</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+      <div class="card mx-2 my-2">
+        <div class="border-0 d-flex flex-row my-2 ml-3 ">
+          <p class="card-table-title">Gastos Financieros</p>
+          <button class="btn edit-data-btn shadow-sm ml-4 ">Editar Categoría</button>
+        </div>
+        <app-table [ColData]="expensesTableData"></app-table>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

@@ -1,0 +1,79 @@
+<div class="modal-header d-flex pb-0 px-5 pt-3" style="margin-top: 48px;">
+  <img class="chevron-icon" src="../../../../assets/icons/chevron_left_icon.svg"
+    alt="chevron-left">
+    <p class="modal-title-font">Nombre Proyecto</p>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body m-0 px-5">
+  <Form>
+    <div class="d-flex flex-row justify-content-center">
+      <div class="container">
+        <div class="row">
+          <div class="d-flex flex-column col-sm">
+            <label class="input-labels">Propuesta - Nombre</label>
+            <input matInput type="text" class="input">
+            <label class="input-labels">Tipo</label>
+            <input matInput type="text" class="input">
+            <label class="input-labels">Asignado</label>
+            <input matInput type="text" class="input">
+            <label class="input-labels">Rol</label>
+            <input matInput type="text" class="input">
+          </div>
+          <div class="d-flex flex-column col-sm ml-lg-3">
+            <label class="input-labels">Estado</label>
+              <select class="form-control selector">
+                <option>--</option>
+                <option>Sí</option>
+                <option>No</option>
+              </select> 
+              <label class="input-labels">Resultado</label>
+              <select class="form-control selector">
+                <option>--</option>
+                <option>Sí</option>
+                <option>No</option>
+              </select> 
+              <label class="input-labels">Fecha</label>
+            <input matInput type="text" class="input">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer d-flex justify-content-center align-items-center py-5">
+      <button type="button" class="btn submit-button">Actualizar</button>
+    </div>
+  </Form>
+</div>
+
+<ng-template #updateProject>
+  
+  <div class="modal-header d-flex pb-0 px-5 pt-3" style="margin-top: 48px;">
+    <img class="chevron-icon" src="../../../../assets/chevron_left_icon.svg"
+      alt="chevron-left">
+      <p class="modal-title-font">Nombre Proyecto</p>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body m-0 px-5">
+    <Form>
+      <div class="d-flex flex-row justify-content-center">
+        <div class="container">
+          <div class="row">
+            <div class="d-flex flex-column col-sm">
+              <label class="input-labels">Propuesta - Nombre</label>
+              <input matInput type="text" class="input">
+              <label class="input-labels">Tipo</label>
+              <input matInput type="text" class="input">
+              <label class="input-labels">Asignado</label>
+              <input matInput type="text" class="input">
+              <label class="input-labels">Rol</label>
+              <input matInput type="text" class="input">
+            </div>
+          </div>
+        </div>
+      </div>
+    </Form>
+  </div>
+</ng-template>
